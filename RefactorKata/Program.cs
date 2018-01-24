@@ -14,13 +14,12 @@ namespace RefactorKata
             cmd.CommandText = "select * from Products";
 
             var reader = cmd.ExecuteReader();
-            List<Product> products = new List<Product>();
+            var products = new Product();
 
             //TODO: Replace with Dapper
             while (reader.Read())
             {
-                var prod = new Product();
-                prod.name = reader["Name"].ToString();
+                var prod = new Product { name = reader["Name"].ToString() };
                 products.Add(prod);
             }
             conn.Dispose();
