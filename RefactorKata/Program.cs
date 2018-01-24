@@ -14,7 +14,7 @@ namespace RefactorKata
             cmd.CommandText = "select * from Products";
 
             var reader = cmd.ExecuteReader();
-            var products = new Product();
+            var products = new List<Product>();
 
             //TODO: Replace with Dapper
             while (reader.Read())
@@ -29,10 +29,5 @@ namespace RefactorKata
                 Console.WriteLine(product.name);
             }
         }
-    }
-    public class Product
-    {
-        public string name;
-        public string Name { get { return name; } set { name = value; } }
     }
 }
